@@ -44,7 +44,7 @@ module PostVersionsHelper
     display = (field == :rating ? post_version.pretty_rating : value)
     
     html = %(<b>#{field.to_s.titleize}:</b> )
-    if value.present?
+    if field == :rating && value.present?
       html << %(#{link_to(display, posts_path(:tags => search))})
     else
       html << "Unknown"
