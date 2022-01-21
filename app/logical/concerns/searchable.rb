@@ -13,7 +13,7 @@ module Searchable
   end
 
   def negate_relation
-    unscoped.where(all.where_clause.invert.ast)
+    unscoped.where.not(id: all)
   end
 
   # XXX hacky method to AND two relations together.
